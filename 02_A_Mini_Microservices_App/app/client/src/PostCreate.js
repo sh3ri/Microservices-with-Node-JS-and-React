@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-export default () => {
+export default ({setPosts, refreshPosts }) => {
   const [title, setTitle] = useState('');
 
   const onSubmit = async (event) => {
@@ -11,6 +11,10 @@ export default () => {
     });
 
     setTitle('');
+
+    // const res = await axios.get('http://localhost:4002/posts');
+    // setPosts(res.data);
+    refreshPosts()
   };
 
   return (

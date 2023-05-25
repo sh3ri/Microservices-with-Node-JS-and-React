@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-export default ({ postId }) => {
+export default ({ postId, refreshPosts }) => {
   const [content, setContent] = useState('');
 
   const onSubmit = async (event) => {
@@ -12,6 +12,8 @@ export default ({ postId }) => {
     });
 
     setContent('');
+
+    refreshPosts()
   };
 
   return (
